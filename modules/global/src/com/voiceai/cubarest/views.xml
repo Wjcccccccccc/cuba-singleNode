@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="cubarest_Session" name="session-view" extends="_local">
+        <property name="speaker" view="_minimal"/>
+    </view>
+    <view entity="cubarest_Session" name="session-view-edit" extends="_minimal">
+        <property name="topic"/>
+        <property name="startTime"/>
+        <property name="speaker" view="_minimal"/>
+    </view>
+    <view entity="cubarest_ExtUser" name="cuabrest_ExtUser" extends="user.browse">
+
+
+    </view>
+</views>

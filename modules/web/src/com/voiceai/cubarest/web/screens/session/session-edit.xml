@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.voiceai.cubarest.web.screens.session">
+    <data>
+        <instance id="sessionDc"
+                  class="com.voiceai.cubarest.entity.Session"
+                  view="session-view-edit">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="sessionDc">
+            <column width="250px">
+                <textField id="topicField" property="topic"/>
+                <dateField id="startTimeField" property="startTime"/>
+                <pickerField id="speakerField" property="speaker">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

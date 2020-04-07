@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="sessionsTable"
+        messagesPack="com.voiceai.cubarest.web.screens.session">
+    <data readOnly="true">
+        <collection id="sessionsDc"
+                    class="com.voiceai.cubarest.entity.Session"
+                    view="session-view">
+            <loader id="sessionsDl">
+                <query>
+                    <![CDATA[select e from cubarest_Session e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="auto"
+                width="auto"/>
+    <layout expand="sessionsTabs"
+            spacing="true">
+        <filter id="filter"
+                applyTo="sessionsTable"
+                dataLoader="sessionsDl">
+            <properties include=".*"/>
+        </filter>
+        <tabSheet id="sessionsTabs">
+            <tab id="carlendarTab" expand="sessionCalendar" caption="msg://carlendarTable">
+                <calendar id="sessionCalendar" dataContainer="sessionsDc" startDateProperty="startTime"
+                          endDateProperty="endTime" captionProperty="topic" navigationButtonsVisible="true">
+
+                    <dayNames>
+                        <day dayOfWeek="MONDAY" value="msg://Monday"/>
+                        <day dayOfWeek="TUESDAY" value="msg://Tuesday"/>
+                        <day dayOfWeek="WEDNESDAY" value="msg://wednesday"/>
+                        <day dayOfWeek="THURSDAY" value="msg://Thursday"/>
+                        <day dayOfWeek="FRIDAY" value="msg://Friday"/>
+                        <day dayOfWeek="SATURDAY" value="msg://Saturday"/>
+                        <day dayOfWeek="SUNDAY" value="msg://Sunday"/>
+                    </dayNames>
+                </calendar>
+            </tab>
+            <tab id="tableTab" expand="sessionsTable" caption="msg://sessionTable">
+                <groupTable id="sessionsTable"
+                            width="100%"
+                            dataContainer="sessionsDc">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="topic"/>
+                        <column id="startTime"/>
+                        <column id="endTime"/>
+                        <column id="speaker"/>
+                    </columns>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn" action="sessionsTable.create"/>
+                        <button id="editBtn" action="sessionsTable.edit"/>
+                        <button id="removeBtn" action="sessionsTable.remove"/>
+                    </buttonsPanel>
+                </groupTable>
+            </tab>
+        </tabSheet>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

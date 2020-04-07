@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="cubarest" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.voiceai.cubarest.entity.Speaker</class>
+        <class>com.voiceai.cubarest.entity.Session</class>
+        <class>com.voiceai.cubarest.entity.ExtUser</class>
+    </persistence-unit>
+</persistence>
