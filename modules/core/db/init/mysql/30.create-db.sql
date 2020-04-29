@@ -1,1 +1,13 @@
+/* 创建初始化test用户*/
+insert into `SEC_USER` (`ID`, `CREATE_TS`, `CREATED_BY`, `VERSION`, `UPDATE_TS`, `UPDATED_BY`, `DELETE_TS`, `DELETED_BY`, `DELETE_TS_NN`, `SYS_TENANT_ID`, `SYS_TENANT_ID_NN`, `LOGIN`, `LOGIN_LC`, `PASSWORD`, `PASSWORD_ENCRYPTION`, `NAME`, `FIRST_NAME`, `LAST_NAME`, `MIDDLE_NAME`, `POSITION_`, `EMAIL`, `LANGUAGE_`, `TIME_ZONE`, `TIME_ZONE_AUTO`, `ACTIVE`, `GROUP_ID`, `GROUP_NAMES`, `IP_MASK`, `CHANGE_PASSWORD_AT_LOGON`, `DTYPE`, `PHONE`, `COMP_ID`, `REMARK`)
+values('46e047338b4fd16d33c81320ccbdba48','2020-04-24 03:39:51.443','admin','7','2020-04-24 10:26:07.784','test',NULL,NULL,'1000-01-01 00:00:00.000',NULL,'no_tenant','test','test','$2a$10$PMDu1F18mGE8f5F4V4JSBOzZiCRmzc.3uyjThXE5jXcM9VNbavEze','bcrypt',NULL,NULL,NULL,NULL,NULL,NULL,'zh_CN',NULL,NULL,'1','0fa2b1a51d684d699fbddff348347f93',NULL,NULL,'0','cubarest_ExtUser',NULL,NULL,NULL);
 
+/* 初始化添加rest访问角色,分别为管理员和普通角色*/
+insert into `SEC_ROLE` (`ID`, `CREATE_TS`, `CREATED_BY`, `VERSION`, `UPDATE_TS`, `UPDATED_BY`, `DELETE_TS`, `DELETED_BY`, `DELETE_TS_NN`, `SYS_TENANT_ID`, `SYS_TENANT_ID_NN`, `NAME`, `LOC_NAME`, `DESCRIPTION`, `IS_DEFAULT_ROLE`, `ROLE_TYPE`, `SECURITY_SCOPE`)
+values('f2154bdead35520cb2b75ebdb47963de','2020-04-24 04:03:26.764','admin','2','2020-04-24 04:11:13.682','admin',NULL,NULL,'1000-01-01 00:00:00.000',NULL,'no_tenant','rest-admin',NULL,'rest接口管理员',NULL,NULL,'REST');
+values('fca88fb450fd5ea88f0a8e36905e16f9','2020-04-24 03:52:37.855','admin','4','2020-04-24 06:09:49.508','admin',NULL,NULL,'1000-01-01 00:00:00.000',NULL,'no_tenant','rest-normal','普通角色','无用户编辑权限','1',NULL,'REST');
+
+/* 给管理员账户和前面创建的test用户赋予对应的rest访问角色 */
+insert into `SEC_USER_ROLE` (`ID`, `CREATE_TS`, `CREATED_BY`, `VERSION`, `UPDATE_TS`, `UPDATED_BY`, `DELETE_TS`, `DELETED_BY`, `DELETE_TS_NN`, `USER_ID`, `ROLE_ID`, `ROLE_NAME`)
+values('a01f03c1acfa95f624716aeee2a98706',current_timestamp,'admin','1',current_timestamp,NULL,NULL,NULL,'1000-01-01 00:00:00.000','46e047338b4fd16d33c81320ccbdba48','fca88fb450fd5ea88f0a8e36905e16f9',NULL);
+values('c58f84b64d2c485d1f48d5ea483fc45d',current_timestamp,'admin','1',current_timestamp,NULL,NULL,NULL,'1000-01-01 00:00:00.000','608859871b61424794c7dff348347f93','f2154bdead35520cb2b75ebdb47963de',NULL);

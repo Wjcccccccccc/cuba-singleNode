@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="tblCallRecordsesTable"
+        messagesPack="com.voiceai.cubarest.web.screens.tblcallrecords">
+    <data readOnly="true">
+        <collection id="tblCallRecordsesDc"
+                    class="com.voiceai.cubarest.entity.TblCallRecords"
+                    view="tblCallRecords-view">
+            <loader id="tblCallRecordsesDl">
+                <query>
+                    <![CDATA[select e from cubarest_TblCallRecords e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tblCallRecordsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tblCallRecordsesTable"
+                dataLoader="tblCallRecordsesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tblCallRecordsesTable"
+                    width="100%"
+                    dataContainer="tblCallRecordsesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="answerTime"/>
+                <column id="call"/>
+                <column id="callDirect"/>
+                <column id="callLog"/>
+                <column id="callResult"/>
+                <column id="calleeArea"/>
+                <column id="caller"/>
+                <column id="callerArea"/>
+                <column id="city"/>
+                <column id="company"/>
+                <column id="content"/>
+                <column id="cough"/>
+                <column id="durationTime"/>
+                <column id="emotion"/>
+                <column id="endTime"/>
+                <column id="filepath"/>
+                <column id="flowName"/>
+                <column id="gender"/>
+                <column id="identityCheck"/>
+                <column id="province"/>
+                <column id="robotAnswerTime"/>
+                <column id="startTime"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="tblCallRecordsesTable.create"/>
+                <button id="editBtn" action="tblCallRecordsesTable.edit"/>
+                <button id="removeBtn" action="tblCallRecordsesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

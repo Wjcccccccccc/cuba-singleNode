@@ -4,13 +4,61 @@
     <view entity="cubarest_Session" name="session-view" extends="_local">
         <property name="speaker" view="_minimal"/>
     </view>
-    <view entity="cubarest_Session" name="session-view-edit" extends="_minimal">
-        <property name="topic"/>
+    <view entity="cubarest_Session" name="session-view-edit" extends="_minimal" >
+        <property name="topic" />
         <property name="startTime"/>
         <property name="speaker" view="_minimal"/>
     </view>
-    <view entity="cubarest_ExtUser" name="cuabrest_ExtUser" extends="user.browse">
 
+    <view entity="cubarest_ExtUser" name="cuabrest_ExtUser" extends="user.browse" overwrite="true" systemProperties="true">
+        <property name="comp_id" view="_minimal"/>
+    </view>
 
+    <view entity="cubarest_ExtUser" name="User_base" extends="_minimal">
+        <property name="comp_id" view="_minimal"/>
+        <!--        <property name="login" />-->
+        <!--        <property name="phone" />-->
+        <!--        <property name="comp_id" />-->
+        <!--        <property name="active" />-->
+        <!--        <property name="remark" />-->
+    </view>
+
+    <view entity="cubarest_ListComingSessions" name="mySessions" extends="_base">
+        <property name="startTime" />
+        <property name="topic"/>
+        <property name="own"/>
+    </view>
+
+    <view entity="cubarest_TblCallRecords" name="Records_base" extends="_minimal">
+<!--        <property name="flow" view="_minimal"/>-->
+<!--        <property name="callee" view="_minimal"/>-->
+    </view>
+
+    <view entity="cubarest_TblCallRecords" name="Records_detail" extends="_minimal">
+        <property name="callerArea"/>
+        <property name="calleeArea"/>
+        <property name="callResult"/>
+        <property name="identityCheck"/>
+        <property name="health"/>
+        <property name="filepath"/>
+        <property name="contents" view="_local"/>
+    </view>
+    <view entity="cubarest_TblCallRecords" name="tblCallRecords-view" extends="Records_base">
+        <property name="callLog" />
+        <property name="callResult" />
+        <property name="calleeArea" />
+        <property name="callerArea" />
+        <property name="city" />
+        <property name="contents" view="CallContent-base" />
+        <property name="endTime" />
+        <property name="filepath" />
+        <property name="province" />
+        <property name="robotAnswerTime" />
+    </view>
+    <view entity="cubarest_TblCallContent" name="CallContent-base" extends="_minimal">
+        <property name="serialNumber"/>
+        <property name="speakerType"/>
+        <property name="answer"/>
+        <property name="record"/>
     </view>
 </views>

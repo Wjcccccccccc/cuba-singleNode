@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <metadata xmlns="http://schemas.haulmont.com/cuba/metadata.xsd">
 
+    <datatypes>
+        <datatype id="dateTime" class="com.haulmont.chile.core.datatypes.impl.DateTimeDatatype"
+                  default="true"
+                  format="yyyy-MM-dd HH:mm:ss"/>
+    </datatypes>
+
+
     <metadata-model root-package="com.voiceai.cubarest" namespace="cubarest">
-        <class>com.voiceai.cubarest.entity.ListComingSessions</class>
+        <class>com.voiceai.cubarest.entity.business.ListComingSessions</class>
+        <class>com.voiceai.cubarest.entity.error.Result</class>
+        <class>com.voiceai.cubarest.entity.business.RecordStatictis</class>
     </metadata-model>
 
 </metadata>

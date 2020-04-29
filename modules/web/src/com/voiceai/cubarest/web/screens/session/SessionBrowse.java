@@ -1,13 +1,10 @@
 package com.voiceai.cubarest.web.screens.session;
 
-import com.haulmont.cuba.core.global.Logging;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.ScreenBuilders;
 import com.haulmont.cuba.gui.components.Calendar;
 import com.haulmont.cuba.gui.components.ContentMode;
 import com.haulmont.cuba.gui.model.CollectionLoader;
-import com.haulmont.cuba.gui.model.DataContext;
-import com.haulmont.cuba.gui.model.ScreenData;
 import com.haulmont.cuba.gui.screen.*;
 import com.voiceai.cubarest.core.SessionService;
 import com.voiceai.cubarest.entity.Session;
@@ -71,7 +68,7 @@ public class SessionBrowse extends StandardLookup<Session> {
         Date newStart = event.getNewStart();
 
         Notifications.NotificationBuilder notify = notifications.create(Notifications.NotificationType.HUMANIZED)
-                .withContentMode(ContentMode.PREFORMATTED);
+                .withContentMode(ContentMode.TEXT);
 
         if (entity != null && !sessionService.rechedulerSession(entity, newStart)) {
             notify.withCaption("msg://CantMove");

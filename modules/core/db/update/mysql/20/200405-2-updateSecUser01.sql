@@ -1,1 +1,0 @@
-update SEC_USER set DTYPE = 'cubarest_ExtUser' where DTYPE is null ;

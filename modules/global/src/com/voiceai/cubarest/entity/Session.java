@@ -2,13 +2,14 @@ package com.voiceai.cubarest.entity;
 
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.voiceai.cubarest.entity.business.ListComingSessions;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-@NamePattern("%s %s %s %s %s %s|id,startTime,endTime,topic,speaker,version")
+@NamePattern("%s %s %s %s %s|id,startTime,topic,speaker")
 @Table(name = "MY_SESSION")
 @Entity(name = "cubarest_Session")
 public class Session extends StandardEntity {
@@ -31,12 +32,12 @@ public class Session extends StandardEntity {
     @JoinColumn(name = "SPEAKER_ID")
     protected Speaker speaker;
 
-    public Speaker getSpeaker() {
-        return speaker;
-    }
-
     public void setSpeaker(Speaker speaker) {
         this.speaker = speaker;
+    }
+
+    public Speaker getSpeaker() {
+        return speaker;
     }
 
     public Date getEndTime() {
@@ -63,8 +64,6 @@ public class Session extends StandardEntity {
         this.topic = topic;
     }
 
-
-
     @PrePersist
     @PreUpdate
     public void updateEndTime() {
@@ -73,6 +72,11 @@ public class Session extends StandardEntity {
 
     public static Date calculatedEndTime(Date startTime) {
         return Date.from(startTime.toInstant().plus(1, ChronoUnit.HOURS));
+    }
+
+    public static ListComingSessions transformToComing(Session session) {
+        ListComingSessions result = new ListComingSessions(session.getStartTime(), session.getTopic(), "test");
+        return result;
     }
 
     @Override

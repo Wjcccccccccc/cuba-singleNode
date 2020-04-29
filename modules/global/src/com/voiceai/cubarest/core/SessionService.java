@@ -1,6 +1,6 @@
 package com.voiceai.cubarest.core;
 
-import com.voiceai.cubarest.entity.ListComingSessions;
+import com.voiceai.cubarest.entity.business.ListComingSessions;
 import com.voiceai.cubarest.entity.Session;
 
 import java.util.Date;
@@ -13,4 +13,5 @@ public interface SessionService {
 
     List<ListComingSessions> listComingSessions();
 
+    List<ListComingSessions> listComingSessions2();
 }

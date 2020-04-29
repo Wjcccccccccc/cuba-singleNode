@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
-    <menu id="application-cubarest" insertBefore="administration">
-        <item screen="cubarest_Speaker.browse"/>
-        <item screen="cubarest_Session.browse"/>
-    </menu>
+<menu id="application-cubarest" insertBefore="administration">
+    <item screen="cubarest_Speaker.browse"/>
+    <item screen="cubarest_Session.browse"/>
+    <item screen="cubarest_TblCallRecords.browse"/>
+</menu>
 </menu-config>

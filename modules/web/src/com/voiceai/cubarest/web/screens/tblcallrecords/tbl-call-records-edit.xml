@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.voiceai.cubarest.web.screens.tblcallrecords">
+    <data>
+        <instance id="tblCallRecordsDc"
+                  class="com.voiceai.cubarest.entity.TblCallRecords"
+                  view="tblCallRecords-view_21">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="tblCallRecordsDc">
+                <column width="250px">
+                    <dateField id="answerTimeField" property="answerTime"/>
+                    <textField id="callField" property="call"/>
+                    <textField id="callDirectField" property="callDirect"/>
+                    <textArea id="callLogField" property="callLog" rows="5"/>
+                    <textField id="callResultField" property="callResult"/>
+                    <textField id="calleeAreaField" property="calleeArea"/>
+                    <textField id="callerField" property="caller"/>
+                    <textField id="callerAreaField" property="callerArea"/>
+                    <textField id="cityField" property="city"/>
+                    <textField id="companyField" property="company"/>
+                    <textField id="contentField" property="content"/>
+                    <textField id="coughField" property="cough"/>
+                    <textField id="durationTimeField" property="durationTime"/>
+                    <textField id="emotionField" property="emotion"/>
+                    <dateField id="endTimeField" property="endTime"/>
+                    <textField id="filepathField" property="filepath"/>
+                    <textField id="flowNameField" property="flowName"/>
+                    <textField id="genderField" property="gender"/>
+                    <textField id="identityCheckField" property="identityCheck"/>
+                    <textField id="provinceField" property="province"/>
+                    <dateField id="robotAnswerTimeField" property="robotAnswerTime"/>
+                    <dateField id="startTimeField" property="startTime"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

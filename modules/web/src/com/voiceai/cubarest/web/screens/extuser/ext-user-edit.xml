@@ -14,7 +14,7 @@
                     <row id="propertiesRow">
                         <fieldGroup id="fieldGroupLast" datasource="userDs" width="AUTO">
                             <column width="250px">
-                                <field id="address" property="address"/>
+                                <field id="phone" property="phone"/>
                             </column>
                         </fieldGroup>
                     </row>

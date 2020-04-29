@@ -12,6 +12,8 @@
         <property name="remoteServices">
             <map>
                 <entry key="cubarest_SessionService" value="com.voiceai.cubarest.core.SessionService"/>
+                <entry key="cubarest_UserService" value="com.voiceai.cubarest.core.UserService"/>
+                <entry key="cubarest_RecordService" value="com.voiceai.cubarest.core.RecordService"/>
             </map>
         </property>
     </bean>

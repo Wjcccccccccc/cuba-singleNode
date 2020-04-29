@@ -2,10 +2,13 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd" caption="msg://browseCaption"
         xmlns:ext="http://schemas.haulmont.com/cuba/window-ext.xsd"
         extends="/com/haulmont/cuba/gui/app/security/user/browse/user-browse.xml">
+
     <layout>
         <groupTable id="usersTable">
             <columns>
-                <column id="address" ext:index="2"/>
+                <column id="phone" ext:index="2"/>
+<!--                <column id="comp_id" ext:index="3"/>-->
+                <column id="remark" ext:index="4"/>
             </columns>
         </groupTable>
     </layout>

@@ -5,5 +5,13 @@
         <class>com.voiceai.cubarest.entity.Speaker</class>
         <class>com.voiceai.cubarest.entity.Session</class>
         <class>com.voiceai.cubarest.entity.ExtUser</class>
+        <class>com.voiceai.cubarest.entity.TblCallRecords</class>
+        <class>com.voiceai.cubarest.entity.TblErrLog</class>
+        <class>com.voiceai.cubarest.entity.TblCompany</class>
+        <class>com.voiceai.cubarest.entity.TblBuzSketch</class>
+        <class>com.voiceai.cubarest.entity.TblCallContent</class>
+        <class>com.voiceai.cubarest.entity.TblCallee</class>
+        <class>com.voiceai.cubarest.entity.TblFlow</class>
+        <class>com.voiceai.cubarest.entity.TblBuzDetail</class>
     </persistence-unit>
 </persistence>

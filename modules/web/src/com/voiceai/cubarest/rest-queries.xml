@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <queries xmlns="http://schemas.haulmont.com/cuba/rest-queries.xsd">
-<!--    <query name="" entity="" view="">-->
-<!--        <jpql></jpql>-->
-<!--    </query>-->
+    <query name="testQuery1" view="session-view-edit" entity="cubarest_Session">
+        <jpql>
+            <![CDATA[
+            select e from cubarest_Session e
+]]>
+        </jpql>
+    </query>
 
+    <query name="testQuery2" view="mySessions" entity="cubarest_ListComingSessions">
+        <jpql>
+            <![CDATA[
+            select NEW com.voiceai.cubarest.entity.ListComingSessions(c.startTime,c.topic ,'test') from cubarest_Session
+]]>
+        </jpql>
+    </query>
+
+    <query name="testQuery3" view="session-view-edit" entity="cubarest_Session">
+        <jpql>
+            <![CDATA[
+            select NEW com.voiceai.cubarest.entity.ListComingSessions(c.startTime,c.topic ,'test') from cubarest_Session
+]]>
+        </jpql>
+    </query>
 </queries>

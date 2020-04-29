@@ -10,7 +10,7 @@
                     view="session-view">
             <loader id="sessionsDl">
                 <query>
-                    <![CDATA[select e from cubarest_Session e]]>
+                    <![CDATA[select e from cubarest_Session e ]]>
                 </query>
             </loader>
         </collection>

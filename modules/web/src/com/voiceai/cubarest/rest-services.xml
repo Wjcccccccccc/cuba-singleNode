@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns="http://schemas.haulmont.com/cuba/rest-services-v2.xsd">
+
+    <service name="cubarest_SessionService" >
+        <method name="listComingSessions">
+        </method>
+        <method name="listComingSessions2"/>
+    </service>
+
+
+    <service name="cubarest_UserService" >
+        <method name="createUser">
+            <param name="user"/>
+        </method>
+    </service>
+
+    <service name="cubarest_RecordService">
+        <method name="recordStatistic"/>
+    </service>
+</services>
+

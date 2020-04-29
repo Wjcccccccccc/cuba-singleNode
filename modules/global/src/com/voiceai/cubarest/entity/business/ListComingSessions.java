@@ -1,9 +1,9 @@
-package com.voiceai.cubarest.entity;
+package com.voiceai.cubarest.entity.business;
 
 import com.haulmont.chile.core.annotations.MetaClass;
 import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.chile.core.annotations.NamePattern;
-import com.haulmont.cuba.core.entity.*;
+import com.haulmont.cuba.core.entity.BaseUuidEntity;
 
 import java.util.Date;
 
@@ -16,14 +16,15 @@ public class ListComingSessions extends BaseUuidEntity {
     protected Date startTime;
 
     @MetaProperty
+    protected String own;
+
+    @MetaProperty
     protected String topic;
 
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
+    public ListComingSessions(Date startTime, String own, String topic) {
         this.startTime = startTime;
+        this.own = own;
+        this.topic = topic;
     }
 
     public String getTopic() {
@@ -32,6 +33,22 @@ public class ListComingSessions extends BaseUuidEntity {
 
     public void setTopic(String topic) {
         this.topic = topic;
+    }
+
+    public String getOwn() {
+        return own;
+    }
+
+    public void setOwn(String own) {
+        this.own = own;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
     }
 
 }
